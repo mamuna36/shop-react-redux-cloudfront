@@ -7,7 +7,7 @@ provider:
   runtime: nodejs14.x
   region: us-east-1
   # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: default
 
 plugins:
   - serverless-finch
@@ -51,16 +51,11 @@ resources:
           Ref: WebAppS3Bucket
         PolicyDocument:
           Statement:
-            - Sid: 'AllowCloudFrontAccessIdentity'
+            - Sid: 'PublicRead'
               Effect: Allow
               Action: s3:GetObject
               Resource: arn:aws:s3:::${self:custom.s3BucketName}/*
-              Principal:
-                AWS:
-                  Fn::Join:
-                    - ' '
-                    - - 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity'
-                      - !Ref OriginAccessIdentity
+              Principal: '*'
 
     OriginAccessIdentity:
       Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
