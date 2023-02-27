@@ -19,7 +19,7 @@ plugins:
 
 custom:
   client:
-    bucketName: shop-react-redux-cloudfront-mamuna
+    bucketName: my-toys-shop
     distributionFolder: dist
   s3BucketName: ${self:custom.client.bucketName}
 
