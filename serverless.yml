@@ -1,4 +1,4 @@
-service: shop-react-redux-cloudfront-mamuna
+service: my-toys-shop
 
 frameworkVersion: '3'
 
