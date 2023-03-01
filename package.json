@@ -22,15 +22,23 @@
     "cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
     "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
     "cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc",
-    "serverless:remove": "sls remove"
+    "serverless:remove": "sls remove",
+    "cdk": "cdk",
+    "synth": "cdk synth"
   },
   "dependencies": {
+    "@aws-cdk/aws-cloudfront": "^1.193.0",
+    "@aws-cdk/aws-iam": "^1.193.0",
+    "@aws-cdk/aws-s3": "^1.193.0",
+    "@aws-cdk/aws-s3-deployment": "^1.193.0",
+    "@aws-cdk/core": "^1.193.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "@mui/styles": "^5.8.7",
     "@types/yup": "^0.29.14",
+    "aws-cdk": "^2.65.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "react": "^18.2.0",
@@ -60,6 +68,7 @@
     "serverless": "^3.20.0",
     "serverless-finch": "^4.0.0",
     "serverless-s3-cleaner": "^2.0.1",
+    "serverless-single-page-app-plugin": "file:serverless-single-page-app-plugin",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
     "vitest": "^0.17.1"

@@ -1,3 +1,11 @@
+Here are the links to deployed versions
+
+- automated deployment to S3 from repo
+  http://shop-react-redux-cloudfront-mamuna.s3-website-us-east-1.amazonaws.com/
+
+- automated deployment to cloudFrontend from repo
+  https://djw2n5m3ort4s.cloudfront.net/
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
