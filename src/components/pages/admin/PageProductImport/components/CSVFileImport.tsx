@@ -34,15 +34,18 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
       params: {
         name: encodeURIComponent(file ? file.name : "file"),
       },
+      headers: {
+        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+      },
     });
 
-    console.log("Uploading to: ", response);
-    // const result = await fetch(response.data, {
-    //   method: "PUT",
-    //   body: file,
-    // });
-    // console.log("Result: ", result);
-    //setFile(undefined);
+    console.log("Uploading to: ", response.data);
+    const result = await fetch(response.data, {
+      method: "PUT",
+      body: file,
+    });
+    console.log("Result: ", result);
+    setFile(undefined);
   };
   return (
     <Box>
