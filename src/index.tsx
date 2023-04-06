@@ -7,11 +7,23 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { theme } from "~/theme";
+import axios from "axios";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: { refetchOnWindowFocus: false, retry: false, staleTime: Infinity },
   },
+});
+axios.interceptors.response.use(undefined, (error) => {
+  if ([401, 403].includes(error.response?.status)) {
+    alert(
+      `Error message: ${
+        error.response.data?.message || "seems like an authorization issue"
+      }; status code: ${error.response.status}`
+    );
+  }
+
+  return Promise.reject(error);
 });
 
 if (import.meta.env.DEV) {
